@@ -1,4 +1,6 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 /**
 * Adds Our_Widget widget.
 */
@@ -7,11 +9,11 @@ class Hmsfp_Widget extends WP_Widget {
 	/**
 	* Register widget
 	*/
-	public function __construct() {
+	function __construct() {
         parent::__construct(
             'hm-classic-facebook-likebox',
-            'Classic Facebook LikeBox',
-            array( 'description' => __( 'Display your facebook page', HMSFP_TEXT_DOMAIN), )
+            __('FeedBook - Social Page Feeds Widget'),
+            array( 'description' => __( 'Display Your FaceBook Page', HMSFP_TEXT_DOMAIN), )
         );
     }
 	
@@ -23,12 +25,11 @@ class Hmsfp_Widget extends WP_Widget {
 	* @param array $args Widget arguments.
 	* @param array $instance Saved values from database.
 	*/
-	public function widget( $args, $instance )
-	{	
+	function widget( $args, $instance ) {	
 		echo $args['before_widget'];
 		
 		if ( ! empty( $instance['title'] ) ){
-			echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ). $args['after_title'];
+			echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
 		}
 		if ( ! empty( $instance['page_name'] ) ) { $page_name = $instance[ 'page_name' ]; }
 		if ( ! empty( $instance['data_tabs'] ) ) { $data_tabs = $instance[ 'data_tabs' ]; }
@@ -64,8 +65,8 @@ class Hmsfp_Widget extends WP_Widget {
 	*
 	* @param array $instance Previously saved values from database.
 	*/
-	public function form( $instance ) 
-	{	
+	function form( $instance ) {
+
 		$instance = wp_parse_args( (array) $instance, array( 'title' => 'Connect With Us', 'page_name' => 'hossnimubarak', 'page_cover' => 'false', 'data_tabs' => 'timeline', 'hmsfp_height' => 70 ) );
         $title = $instance['title'];
         $page_name = $instance['page_name'];
@@ -75,12 +76,12 @@ class Hmsfp_Widget extends WP_Widget {
         ?>
             <p>
                 <label for="<?php echo $this->get_field_id('title'); ?>">Title: 
-                    <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" />
+                    <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
                 </label>
             </p>
             <p>
                 <label for="<?php echo $this->get_field_id('page_name'); ?>">Facebook Page: 
-                    <input class="widefat" id="<?php echo $this->get_field_id('page_name'); ?>" name="<?php echo $this->get_field_name('page_name'); ?>" type="text" value="<?php echo esc_attr($page_name); ?>" />
+                    <input class="widefat" id="<?php echo $this->get_field_id('page_name'); ?>" name="<?php echo $this->get_field_name('page_name'); ?>" type="text" value="<?php echo esc_attr( $page_name ); ?>" />
                 </label>
             </p>
 			<p>
@@ -123,8 +124,8 @@ class Hmsfp_Widget extends WP_Widget {
 	*
 	* @return array Updated safe values to be saved.
 	*/
-	public function update( $new_instance, $old_instance ) 
-	{
+	public function update( $new_instance, $old_instance ) {
+
 		$instance = $old_instance;
 
         $instance['title'] = strip_tags($new_instance['title']);

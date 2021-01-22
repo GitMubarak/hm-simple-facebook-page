@@ -4,7 +4,7 @@ Donate link: https://www.paypal.me/mhmrajib
 Tags: facebook, likebox, facebook like, facebook like button, like button
 Requires at least: 4.6
 Tested up to: 5.6
-Stable tag: 1.4
+Stable tag: 1.5
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -92,6 +92,10 @@ If the URL for your page is http://FB.com/johndoe123 then you have to enter john
 
 
 == Changelog ==
+
+= 1.5 =
+
+* Code optimized and minor bug fixed
 
 = 1.4 =
 * Some Bug fixed

@@ -1,4 +1,6 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 /**
  * Our main plugin class
 */
@@ -28,7 +30,7 @@ class HMSFP_Master {
 		add_action( 'wp_enqueue_scripts', array($this, 'hmsfp_front_assets' ));
 	}
 
-	function hmsfp_front_assets(){
+	function hmsfp_front_assets() {
 		wp_enqueue_style('hmsfp-front-style', HMSFP_ASSETS . 'css/hmsfp-front-style.css', array(), HMSFP_VERSION, FALSE );
 	}
 }
