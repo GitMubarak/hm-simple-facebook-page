@@ -99,5 +99,5 @@ function hmsfp_load_shortcode_view( $attr ) {
     $output .= ob_get_clean();
     return $output;
 }
-add_shortcode('hm_feedBook', 'hmsfp_load_shortcode_view');
+add_shortcode('hm_feedbook', 'hmsfp_load_shortcode_view');
 ?>

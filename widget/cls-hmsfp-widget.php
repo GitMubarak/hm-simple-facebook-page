@@ -111,6 +111,12 @@ class Hmsfp_Widget extends WP_Widget {
                 </label>
             </p>
             <p><small>*Min. is 70px</small></p>
+			<p style="margin-bottom: 1px! important;">
+				<a href="https://hossnimubarak.com" target="_blank" class="button button-primary">Get Support</a>
+				<a href='https://www.paypal.me/mhmrajib' class="button button-primary" target="_blank">Donate</a>
+				<a href='https://wordpress.org/support/plugin/hm-simple-facebook-page/reviews/#new-post' class="button button-primary" target="_blank">Rate Us!</a>
+			</p>
+			<br>
 		<?php
 	}
 	

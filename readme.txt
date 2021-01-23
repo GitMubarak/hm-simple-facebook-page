@@ -94,7 +94,7 @@ If the URL for your page is http://FB.com/johndoe123 then you have to enter john
 == Changelog ==
 
 = 1.5 =
-
+* Introduce Shortcode to display likebox to your post/page
 * Code optimized and minor bug fixed
 
 = 1.4 =
