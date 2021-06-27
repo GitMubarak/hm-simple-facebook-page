@@ -3,7 +3,7 @@
  * Plugin Name: 	FeedBook - Social Page Feeds Widget
  * Plugin URI:		http://wordpress.org/plugins/hm-simple-facebook-page-plugin/
  * Description: 	This Social Page Feeds Widget plugin will help you to display a FB likebox in your website's widget area.
- * Version: 		1.5
+ * Version: 		1.6
  * Author: 			Hossni Mubarak
  * Author URI: 		http://www.hossnimubarak.com
  * License:         GPL-2.0+
@@ -17,7 +17,7 @@ define( 'HMSFP_PATH', plugin_dir_path( __FILE__ ) );
 define( 'HMSFP_ASSETS', plugins_url( '/assets/', __FILE__ ) );
 define( 'HMSFP_LANG', plugins_url('/languages/', __FILE__));
 define( 'HMSFP_SLUG', plugin_basename( __FILE__ ) );
-define( 'HMSFP_VERSION', '1.5' );
+define( 'HMSFP_VERSION', '1.6' );
 define( 'HMSFP_TEXT_DOMAIN', 'hm-simple-facebook-page' );
 define( 'HMSFP_CLS_PRFX', 'cls-hmsfp' );
 
@@ -42,7 +42,6 @@ add_filter( 'plugin_row_meta', 'hmsfp_display_donation_link', 10, 2 );
 function hmsfp_load_shortcode_view( $attr ) {
     $output = '';
     ob_start();
-    //include(plugin_dir_path(__FILE__) . '/view/wpsd-front-view.php');
 
     if ( ! empty( $attr['page_name'] ) ) { 
         $page_name = $attr[ 'page_name' ]; 
