@@ -38,6 +38,14 @@ function hmsfp_display_donation_link( $links, $file ) {
 }
 add_filter( 'plugin_row_meta', 'hmsfp_display_donation_link', 10, 2 );
 
+function custom_content_after_body_open_tag() {
+    ?>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v11.0" nonce="0ydnabQs"></script>
+    <?php
+}
+add_action('wp_body_open', 'custom_content_after_body_open_tag');
+
 
 function hmsfp_load_shortcode_view( $attr ) {
     $output = '';

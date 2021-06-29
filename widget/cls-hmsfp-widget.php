@@ -2,7 +2,7 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 /**
-* Adds Our_Widget widget.
+* FeedBook Widget Master
 */
 class Hmsfp_Widget extends WP_Widget {
 	
@@ -13,7 +13,7 @@ class Hmsfp_Widget extends WP_Widget {
         parent::__construct(
             'hm-classic-facebook-likebox',
             __('FeedBook - Social Page Feeds Widget'),
-            array( 'description' => __( 'Display Your FaceBook Page', HMSFP_TEXT_DOMAIN), )
+            array( 'description' => __( 'Display Your FaceBook Page', HMSFP_TEXT_DOMAIN), ),
         );
     }
 	
@@ -25,35 +25,25 @@ class Hmsfp_Widget extends WP_Widget {
 	* @param array $args Widget arguments.
 	* @param array $instance Saved values from database.
 	*/
-	function widget( $args, $instance ) {	
+	function widget( $args, $instance ) {
+
 		echo $args['before_widget'];
 		
-		if ( ! empty( $instance['title'] ) ){
+		if ( ! empty( $instance['title'] ) ) {
 			echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
 		}
 		if ( ! empty( $instance['page_name'] ) ) { $page_name = $instance[ 'page_name' ]; }
 		if ( ! empty( $instance['data_tabs'] ) ) { $data_tabs = $instance[ 'data_tabs' ]; }
-		if($data_tabs == 'all'){
+		if ( $data_tabs === 'all' ) {
 			$data_tabs2 = 'timeline, messages, events';
-		}else{
+		} else {
 			$data_tabs2 = $data_tabs;
 		}
 		if ( ! empty( $instance['hmsfp_height'] ) ) { $hmsfp_height = $instance[ 'hmsfp_height' ]; }
 		if ( ! empty( $instance['page_cover'] ) ) { $page_cover = $instance[ 'page_cover' ]; }
 		?>
-		
-		<div class="fb-page" data-height="<?php echo $hmsfp_height; ?>" data-href="https://www.facebook.com/<?php echo $page_name; ?>/" data-tabs="<?php echo $data_tabs2; ?>" data-small-header="true" data-adapt-container-width="true" data-hide-cover="<?php echo $page_cover; ?>" data-show-facepile="true"><blockquote cite="https://www.facebook.com/<?php echo $page_name; ?>/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/<?php echo $page_name; ?>/"><?php echo $page_name; ?></a></blockquote></div>
-		<div id="fb-root"></div>
-		<script>
-			(function(d, s, id) {
-			  var js, fjs = d.getElementsByTagName(s)[0];
-			  if (d.getElementById(id)) return;
-			  js = d.createElement(s); js.id = id;
-			  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2';
-			  fjs.parentNode.insertBefore(js, fjs);
-			}(document, 'script', 'facebook-jssdk'));
-		</script>
-		<br /><br />
+		<div class="fb-page" data-href="https://www.facebook.com/hmplugin/" data-tabs="timeline" data-width="" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/hmplugin/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/hmplugin/">HM Plugin</a></blockquote></div>
+		<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fhmplugin%2F&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="340" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
 		<?php
 		echo $args['after_widget'];
 	}
@@ -67,12 +57,12 @@ class Hmsfp_Widget extends WP_Widget {
 	*/
 	function form( $instance ) {
 
-		$instance = wp_parse_args( (array) $instance, array( 'title' => 'Connect With Us', 'page_name' => 'hossnimubarak', 'page_cover' => 'false', 'data_tabs' => 'timeline', 'hmsfp_height' => 70 ) );
-        $title = $instance['title'];
-        $page_name = $instance['page_name'];
-		$page_cover = $instance['page_cover'];
-        $data_tabs = $instance['data_tabs'];
-        $hmsfp_height = $instance['hmsfp_height'];
+		$instance 		= wp_parse_args( (array) $instance, array( 'title' => 'Connect With Us', 'page_name' => 'hossnimubarak', 'page_cover' => 'false', 'data_tabs' => 'timeline', 'hmsfp_height' => 70 ) );
+        $title 			= $instance['title'];
+        $page_name 		= $instance['page_name'];
+		$page_cover 	= $instance['page_cover'];
+        $data_tabs		= $instance['data_tabs'];
+        $hmsfp_height 	= $instance['hmsfp_height'];
         ?>
             <p>
                 <label for="<?php echo $this->get_field_id('title'); ?>">Title: 
